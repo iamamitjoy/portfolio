@@ -4,9 +4,9 @@ import {
   FaGithub,
   FaInstagram,
   FaLinkedinIn,
+  FaReddit,
   FaThreads,
   FaXTwitter,
-  FaReddit,
 } from 'react-icons/fa6'
 import {
   FaCode,
@@ -34,84 +34,58 @@ import bnmpcLogo from './assets/institutions/bnmpc.png'
 import idealLogo from './assets/institutions/ideal.png'
 import ddeskLogo from './assets/institutions/ddesk.png'
 
+const SITE_URL = 'https://amitjoy.vercel.app'
+
 const portfolio = {
   name: 'Amit Paul Joy',
   shortName: 'APJ',
   role: 'Information Systems Security Professional',
   location: 'Bangladesh',
   email: 'iamamitjoy@gmail.com',
-
   about:
     'I have an academic background in information systems security and electronics and communication engineering. I am interested in technology, IT operations, academic learning, and professional problem solving.',
 
-  facebook: 'https://www.facebook.com/Its.Amit.Joy/',
-
-  x: 'https://x.com/IamAmitJoy',
-
-  github: 'https://github.com/iamamitjoy',
-
-  linkedin: 'https://www.linkedin.com/in/iamamitjoy',
-
-  threads: 'https://www.threads.com/@iamamitjoy',
-
-  instagram: 'https://www.instagram.com/iamamitjoy',
-
-  reddit: 'https://www.reddit.com/user/itsamitjoy/',
+  social: [
+    { label: 'Facebook', url: 'https://www.facebook.com/Its.Amit.Joy/', icon: FaFacebookF },
+    { label: 'X', url: 'https://x.com/IamAmitJoy', icon: FaXTwitter },
+    { label: 'GitHub', url: 'https://github.com/iamamitjoy', icon: FaGithub },
+    { label: 'LinkedIn', url: 'https://www.linkedin.com/in/iamamitjoy', icon: FaLinkedinIn },
+    { label: 'Threads', url: 'https://www.threads.com/@iamamitjoy', icon: FaThreads },
+    { label: 'Instagram', url: 'https://www.instagram.com/iamamitjoy', icon: FaInstagram },
+    { label: 'Reddit', url: 'https://www.reddit.com/user/itsamitjoy/', icon: FaReddit },
+  ],
 
   education: [
     {
       degree: 'M.Sc. in Information Systems Security',
-
       school: 'Bangladesh University of Professionals - BUP',
-
       period: '2025',
-
       details: 'Postgraduate education in information systems security.',
-
       logo: bupLogo,
-
       website: 'https://bup.edu.bd/',
     },
-
     {
       degree: 'B.Sc.(Hons.) in Electronics and Communication Engineering',
-
       school: 'ISTT - Institute of Science Trade & Technology',
-
       period: '2020',
-
       details: 'Bachelor of Science Honours degree.',
-
       logo: isttLogo,
-
       website: 'https://istt.edu.bd/',
     },
-
     {
       degree: 'Higher Secondary Certificate - HSC',
-
       school: 'Birshreshtha Noor Mohammad Public College',
-
       period: '2015',
-
       details: 'Higher Secondary Certificate - HSC completed in 2015.',
-
       logo: bnmpcLogo,
-
       website: 'https://www.noormohammadcollege.ac.bd/',
     },
-
     {
       degree: 'Secondary School Certificate - SSC',
-
       school: 'Ideal School & College',
-
       period: '2013',
-
       details: 'Secondary School Certificate - SSC completed in 2013.',
-
       logo: idealLogo,
-
       website: 'https://iscm.edu.bd/',
     },
   ],
@@ -119,14 +93,10 @@ const portfolio = {
   work: [
     {
       title: 'Ddesk IT Limited',
-
       period: 'August 2018 - April 2026',
-
       details:
         'Worked as a Senior Executive in the Web Development Department, specializing in web development and search engine optimization - SEO.',
-
       logo: ddeskLogo,
-
       website: 'https://ddeskitlimited.com/',
     },
   ],
@@ -137,22 +107,10 @@ const portfolio = {
       category: 'Web Development',
       description: 'Building structured, responsive, and interactive web experiences.',
       skills: [
-        {
-          name: 'HTML',
-          icon: 'html',
-        },
-        {
-          name: 'CSS',
-          icon: 'css',
-        },
-        {
-          name: 'JavaScript',
-          icon: 'javascript',
-        },
-        {
-          name: 'WordPress',
-          icon: 'wordpress',
-        },
+        { name: 'HTML', icon: 'html' },
+        { name: 'CSS', icon: 'css' },
+        { name: 'JavaScript', icon: 'javascript' },
+        { name: 'WordPress', icon: 'wordpress' },
       ],
     },
     {
@@ -160,18 +118,9 @@ const portfolio = {
       category: 'Programming & SEO',
       description: 'Writing programs and improving website visibility in search engines.',
       skills: [
-        {
-          name: 'Python',
-          icon: 'python',
-        },
-        {
-          name: 'C++',
-          icon: 'cplusplus',
-        },
-        {
-          name: 'Search Engine Optimization',
-          icon: 'seo',
-        },
+        { name: 'Python', icon: 'python' },
+        { name: 'C++', icon: 'cplusplus' },
+        { name: 'Search Engine Optimization', icon: 'seo' },
       ],
     },
     {
@@ -180,18 +129,9 @@ const portfolio = {
       description:
         'Exploring methods for protecting information, systems, and digital communication.',
       skills: [
-        {
-          name: 'Cryptography',
-          icon: 'cryptography',
-        },
-        {
-          name: 'Steganography',
-          icon: 'steganography',
-        },
-        {
-          name: 'Cybersecurity',
-          icon: 'cybersecurity',
-        },
+        { name: 'Cryptography', icon: 'cryptography' },
+        { name: 'Steganography', icon: 'steganography' },
+        { name: 'Cybersecurity', icon: 'cybersecurity' },
       ],
     },
     {
@@ -199,21 +139,13 @@ const portfolio = {
       category: 'Creative & Productivity',
       description: 'Creating documents, visual assets, and polished video content.',
       skills: [
-        {
-          name: 'Microsoft Office',
-          icon: 'office',
-        },
-        {
-          name: 'Adobe Photoshop',
-          icon: 'photoshop',
-        },
-        {
-          name: 'Adobe Premiere Pro',
-          icon: 'premiere',
-        },
+        { name: 'Microsoft Office', icon: 'office' },
+        { name: 'Adobe Photoshop', icon: 'photoshop' },
+        { name: 'Adobe Premiere Pro', icon: 'premiere' },
       ],
     },
   ],
+
   hobbies: [
     {
       number: '01',
@@ -240,119 +172,150 @@ const portfolio = {
   ],
 }
 
-function Icon({ name }) {
-  const icons = {
-    facebook: FaFacebookF,
-    x: FaXTwitter,
-    github: FaGithub,
-    linkedin: FaLinkedinIn,
-    threads: FaThreads,
-    instagram: FaInstagram,
-    reddit: FaReddit,
-    mail: MdEmail,
-  }
+// One source of truth for routes, nav labels, page titles and meta descriptions.
+const SECTIONS = [
+  {
+    id: 'home',
+    title: 'Home',
+    description:
+      'Portfolio of Amit Paul Joy, Information Systems Security Professional in Bangladesh with an M.Sc. from BUP and expertise in cybersecurity, web dev & SEO.',
+  },
+  {
+    id: 'about',
+    title: 'About',
+    description: 'About Amit Paul Joy, an information systems security professional from Bangladesh.',
+  },
+  {
+    id: 'education',
+    title: 'Education',
+    description: 'Education of Amit Paul Joy, from SSC to an M.Sc. in Information Systems Security at BUP.',
+  },
+  {
+    id: 'experience',
+    title: 'Work',
+    description: 'Work experience of Amit Paul Joy in web development and SEO at Ddesk IT Limited.',
+  },
+  {
+    id: 'skills',
+    title: 'Skills',
+    description: 'Skills of Amit Paul Joy in web development, SEO, cryptography, steganography and cybersecurity.',
+  },
+  {
+    id: 'hobbies',
+    title: 'Hobbies',
+    description: 'Hobbies of Amit Paul Joy, including cricket and competitive video games.',
+  },
+  {
+    id: 'contact',
+    title: 'Contact',
+    description: 'Get in touch with Amit Paul Joy about projects and opportunities.',
+  },
+]
 
-  const SelectedIcon = icons[name]
+const sectionIds = SECTIONS.map((section) => section.id)
+const navigationItems = SECTIONS.filter((section) => section.id !== 'home')
 
-  if (!SelectedIcon) {
-    return null
-  }
+const pathFor = (sectionId) => (sectionId === 'home' ? '/' : `/${sectionId}`)
 
-  return <SelectedIcon aria-hidden="true" focusable="false" />
+const getSectionFromPath = () => {
+  const path = window.location.pathname.replace(/^\/|\/$/g, '')
+  return sectionIds.includes(path) ? path : 'home'
+}
+
+// Old links like /#about map to the new path-based URLs.
+const getSectionFromHash = () => {
+  const hash = window.location.hash.replace('#', '')
+  return sectionIds.includes(hash) ? hash : null
+}
+
+const skillIcons = {
+  html: FaHtml5,
+  css: FaCss3Alt,
+  javascript: FaJs,
+  wordpress: FaWordpress,
+  python: SiPython,
+  cplusplus: SiCplusplus,
+  seo: FaSearch,
+  cryptography: FaLock,
+  steganography: FaImage,
+  cybersecurity: FaShieldAlt,
+  office: FaFileWord,
+  photoshop: FaImage,
+  premiere: FaFilm,
+}
+
+const hobbyIcons = {
+  cricket: MdSportsCricket,
+  gaming: FaGamepad,
 }
 
 function SkillIcon({ name }) {
-  const icons = {
-    html: FaHtml5,
-    css: FaCss3Alt,
-    javascript: FaJs,
-    wordpress: FaWordpress,
-
-    python: SiPython,
-    cplusplus: SiCplusplus,
-    seo: FaSearch,
-
-    cryptography: FaLock,
-    steganography: FaImage,
-    cybersecurity: FaShieldAlt,
-
-    office: FaFileWord,
-    photoshop: FaImage,
-    premiere: FaFilm,
-  }
-
-  const SelectedIcon = icons[name] || FaCode
-
+  const SelectedIcon = skillIcons[name] || FaCode
   return <SelectedIcon aria-hidden="true" focusable="false" />
 }
 
 function HobbyIcon({ name }) {
-  const icons = {
-    cricket: MdSportsCricket,
-    gaming: FaGamepad,
-  }
+  const SelectedIcon = hobbyIcons[name]
+  return SelectedIcon ? <SelectedIcon aria-hidden="true" focusable="false" /> : null
+}
 
-  const SelectedIcon = icons[name]
-
-  if (!SelectedIcon) {
-    return null
-  }
-
-  return <SelectedIcon aria-hidden="true" focusable="false" />
+function ExternalLink({ href, className, title, children, ...rest }) {
+  return (
+    <a
+      className={className}
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      title={title}
+      {...rest}
+    >
+      {children}
+    </a>
+  )
 }
 
 function InstitutionLink({ item, type }) {
-  const name = type === 'education' ? item.school : item.title
+  const isEducation = type === 'education'
+  const name = isEducation ? item.school : item.title
+  const visitLabel = `Visit ${name} website`
 
   return (
     <article className="timeline-item reveal institution-item">
       <span className="timeline-dot" />
 
-      <a
+      <ExternalLink
         className="institution-logo-link"
         href={item.website}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={`Visit ${name} website`}
-        title={`Visit ${name} website`}
+        aria-label={visitLabel}
+        title={visitLabel}
       >
         <img className="institution-logo" src={item.logo} alt={`${name} logo`} loading="lazy" />
-      </a>
+      </ExternalLink>
 
       <div className="institution-content">
         <p className="timeline-period">{item.period}</p>
 
-        {type === 'education' ? (
+        {isEducation ? (
           <>
             <h3>{item.degree}</h3>
 
             <h4>
-              <a
-                className="institution-name-link"
-                href={item.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                title={`Visit ${name} website`}
-              >
+              <ExternalLink className="institution-name-link" href={item.website} title={visitLabel}>
                 {item.school}
-
                 <span aria-hidden="true">↗</span>
-              </a>
+              </ExternalLink>
             </h4>
           </>
         ) : (
           <h3>
-            <a
+            <ExternalLink
               className="institution-name-link work-name-link"
               href={item.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              title={`Visit ${name} website`}
+              title={visitLabel}
             >
               {item.title}
-
               <span aria-hidden="true">↗</span>
-            </a>
+            </ExternalLink>
           </h3>
         )}
 
@@ -372,43 +335,28 @@ function App() {
       return true
     }
   })
+  const [activeSection, setActiveSection] = useState(
+    () => getSectionFromHash() || getSectionFromPath(),
+  )
 
-  const validSections = ['home', 'about', 'education', 'experience', 'skills', 'hobbies', 'contact']
-
-  const sectionTitles = {
-    home: 'Home',
-    about: 'About',
-    education: 'Education',
-    experience: 'Work',
-    skills: 'Skills',
-    hobbies: 'Hobbies',
-    contact: 'Contact',
-  }
-
-  const getSectionFromPath = () => {
-    const path = window.location.pathname.replace(/^\/|\/$/g, '')
-    if (path === '') return 'home'
-    return validSections.includes(path) ? path : 'home'
-  }
-
-  const [activeSection, setActiveSection] = useState(() => {
-    // Support old links like /#about by mapping them to the new path
-    const oldHash = window.location.hash.replace('#', '')
-    if (oldHash && validSections.includes(oldHash)) {
-      return oldHash
-    }
-    return getSectionFromPath()
-  })
-
+  // Replace an old /#about URL with /about.
   useEffect(() => {
-    const oldHash = window.location.hash.replace('#', '')
-    if (oldHash && validSections.includes(oldHash)) {
-      window.history.replaceState(null, '', oldHash === 'home' ? '/' : `/${oldHash}`)
+    const hashSection = getSectionFromHash()
+    if (hashSection) {
+      window.history.replaceState(null, '', pathFor(hashSection))
     }
   }, [])
 
+  // Keep title, description and canonical in sync with the current route.
   useEffect(() => {
-    document.title = `${sectionTitles[activeSection]} | ${portfolio.name}`
+    const section = SECTIONS.find((item) => item.id === activeSection)
+    document.title = `${section.title} | ${portfolio.name}`
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute('content', section.description)
+    document
+      .querySelector('link[rel="canonical"]')
+      ?.setAttribute('href', `${SITE_URL}${pathFor(activeSection)}`)
   }, [activeSection])
 
   useEffect(() => {
@@ -421,7 +369,6 @@ function App() {
   }, [darkMode])
 
   useEffect(() => {
-    const elements = document.querySelectorAll('.reveal')
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -434,7 +381,7 @@ function App() {
       { threshold: 0.08 },
     )
 
-    elements.forEach((element) => observer.observe(element))
+    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element))
     return () => observer.disconnect()
   }, [activeSection])
 
@@ -448,14 +395,13 @@ function App() {
     return () => window.removeEventListener('popstate', handlePopState)
   }, [])
 
-  const closeMenu = () => setMenuOpen(false)
-
   const showSection = (sectionId) => {
-    const nextSection = validSections.includes(sectionId) ? sectionId : 'home'
-    setActiveSection(nextSection)
-    closeMenu()
+    const nextSection = sectionIds.includes(sectionId) ? sectionId : 'home'
+    const nextPath = pathFor(nextSection)
 
-    const nextPath = nextSection === 'home' ? '/' : `/${nextSection}`
+    setActiveSection(nextSection)
+    setMenuOpen(false)
+
     if (window.location.pathname !== nextPath) {
       window.history.pushState(null, '', nextPath)
     }
@@ -468,47 +414,10 @@ function App() {
     showSection(sectionId)
   }
 
-  const handleHomeClick = (event) => {
-    event.preventDefault()
-    showSection('home')
-  }
-
-  const navigationItems = [
-    {
-      id: 'about',
-      label: 'About',
-    },
-
-    {
-      id: 'education',
-      label: 'Education',
-    },
-
-    {
-      id: 'experience',
-      label: 'Work',
-    },
-
-    {
-      id: 'skills',
-      label: 'Skills',
-    },
-
-    {
-      id: 'hobbies',
-      label: 'Hobbies',
-    },
-
-    {
-      id: 'contact',
-      label: 'Contact',
-    },
-  ]
-
   return (
     <>
       <header className="header">
-        <a className="brand" href="/" onClick={handleHomeClick}>
+        <a className="brand" href="/" onClick={(event) => handleNavClick(event, 'home')}>
           <span>{portfolio.shortName}</span>
         </a>
 
@@ -528,12 +437,12 @@ function App() {
           {navigationItems.map((item) => (
             <a
               key={item.id}
-              href={`/${item.id}`}
+              href={pathFor(item.id)}
               className={activeSection === item.id ? 'active' : ''}
               aria-current={activeSection === item.id ? 'page' : undefined}
               onClick={(event) => handleNavClick(event, item.id)}
             >
-              {item.label}
+              {item.title}
             </a>
           ))}
         </nav>
@@ -575,66 +484,14 @@ function App() {
               </div>
 
               <div className="social-row">
-                <a
-                  href={portfolio.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Facebook"
-                >
-                  <Icon name="facebook" />
-                </a>
-
-                <a href={portfolio.x} target="_blank" rel="noopener noreferrer" aria-label="X">
-                  <Icon name="x" />
-                </a>
-
-                <a
-                  href={portfolio.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub"
-                >
-                  <Icon name="github" />
-                </a>
-
-                <a
-                  href={portfolio.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                >
-                  <Icon name="linkedin" />
-                </a>
-
-                <a
-                  href={portfolio.threads}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Threads"
-                >
-                  <Icon name="threads" />
-                </a>
-
-                <a
-                  href={portfolio.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram"
-                >
-                  <Icon name="instagram" />
-                </a>
-
-                <a
-                  href={portfolio.reddit}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Reddit"
-                >
-                  <Icon name="reddit" />
-                </a>
+                {portfolio.social.map(({ label, url, icon: SocialIcon }) => (
+                  <ExternalLink key={label} href={url} aria-label={label}>
+                    <SocialIcon aria-hidden="true" focusable="false" />
+                  </ExternalLink>
+                ))}
 
                 <a href={`mailto:${portfolio.email}`} aria-label="Email">
-                  <Icon name="mail" />
+                  <MdEmail aria-hidden="true" focusable="false" />
                 </a>
               </div>
             </div>
@@ -643,7 +500,7 @@ function App() {
               <div className="orbit orbit-one" />
               <div className="orbit orbit-two" />
 
-              <img className="avatar" src={profilePhoto} alt="Amit Paul Joy" />
+              <img className="avatar" src={profilePhoto} alt={portfolio.name} />
             </div>
           </section>
         )}
@@ -662,25 +519,21 @@ function App() {
               <div className="info-card reveal">
                 <div>
                   <span>Name</span>
-
                   <strong>{portfolio.name}</strong>
                 </div>
 
                 <div>
                   <span>Role</span>
-
                   <strong>{portfolio.role}</strong>
                 </div>
 
                 <div>
                   <span>Location</span>
-
                   <strong>{portfolio.location}</strong>
                 </div>
 
                 <div>
                   <span>Email</span>
-
                   <strong>{portfolio.email}</strong>
                 </div>
               </div>
@@ -854,7 +707,7 @@ function App() {
           © {new Date().getFullYear()} {portfolio.name}
         </p>
 
-        <a href="/" onClick={handleHomeClick}>
+        <a href="/" onClick={(event) => handleNavClick(event, 'home')}>
           Home
         </a>
       </footer>
