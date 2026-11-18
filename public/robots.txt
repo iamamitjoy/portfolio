@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://amitjoy.vercel.app/sitemap.xml
