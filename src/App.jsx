@@ -4,11 +4,14 @@ import {
   FaGithub,
   FaInstagram,
   FaLinkedinIn,
+  FaPinterestP,
   FaReddit,
+  FaSnapchat,
   FaThreads,
   FaXTwitter,
 } from 'react-icons/fa6'
 import {
+  FaChessKnight,
   FaCode,
   FaCss3Alt,
   FaFileWord,
@@ -46,13 +49,15 @@ const portfolio = {
     'I have an academic background in information systems security and electronics and communication engineering. I am interested in technology, IT operations, academic learning, and professional problem solving.',
 
   social: [
-    { label: 'Facebook', url: 'https://www.facebook.com/Its.Amit.Joy/', icon: FaFacebookF },
+    { label: 'Facebook', url: 'https://www.facebook.com/Its.Amit.Joy', icon: FaFacebookF },
     { label: 'X', url: 'https://x.com/IamAmitJoy', icon: FaXTwitter },
     { label: 'GitHub', url: 'https://github.com/iamamitjoy', icon: FaGithub },
     { label: 'LinkedIn', url: 'https://www.linkedin.com/in/iamamitjoy', icon: FaLinkedinIn },
     { label: 'Threads', url: 'https://www.threads.com/@iamamitjoy', icon: FaThreads },
     { label: 'Instagram', url: 'https://www.instagram.com/iamamitjoy', icon: FaInstagram },
-    { label: 'Reddit', url: 'https://www.reddit.com/user/itsamitjoy/', icon: FaReddit },
+    { label: 'Reddit', url: 'https://www.reddit.com/user/itsamitjoy', icon: FaReddit },
+    { label: 'Pinterest', url: 'https://www.pinterest.com/iamamitjoy', icon: FaPinterestP },
+    { label: 'Snapchat', url: 'https://www.snapchat.com/add/iamamitjoy', icon: FaSnapchat },
   ],
 
   education: [
@@ -157,10 +162,19 @@ const portfolio = {
     },
     {
       number: '02',
+      title: 'Playing Chess',
+      type: 'Mind Sport',
+      description:
+        'I enjoy chess as a mind sport. It builds patience and focus, and trains me to think several moves ahead before making a decision.',
+      icon: 'chess',
+    },
+    {
+      number: '03',
       title: 'Playing Video Games',
       type: 'Gaming',
       description: 'I enjoy competitive, sports, strategy, and open-world video games.',
       icon: 'gaming',
+      wide: true,
       games: [
         'EA SPORTS FC 27',
         'EA SPORTS FC Online',
@@ -203,7 +217,7 @@ const SECTIONS = [
   {
     id: 'hobbies',
     title: 'Hobbies',
-    description: 'Hobbies of Amit Paul Joy, including cricket and competitive video games.',
+    description: 'Hobbies of Amit Paul Joy, including cricket, chess and competitive video games.',
   },
   {
     id: 'contact',
@@ -246,6 +260,7 @@ const skillIcons = {
 
 const hobbyIcons = {
   cricket: MdSportsCricket,
+  chess: FaChessKnight,
   gaming: FaGamepad,
 }
 
@@ -635,14 +650,17 @@ function App() {
               <h2>Hobbies</h2>
 
               <p className="hobbies-intro">
-                Activities I enjoy during my free time, from outdoor sports to competitive and
-                open-world gaming.
+                Activities I enjoy during my free time, from outdoor sports and chess to
+                competitive and open-world gaming.
               </p>
             </div>
 
             <div className="hobbies-grid">
               {portfolio.hobbies.map((hobby) => (
-                <article className={`hobby-card hobby-card-${hobby.icon} reveal`} key={hobby.title}>
+                <article
+                  className={`hobby-card hobby-card-${hobby.icon}${hobby.wide ? ' hobby-card-wide' : ''} reveal`}
+                  key={hobby.title}
+                >
                   <div className="hobby-card-top">
                     <span className="hobby-number">{hobby.number}</span>
 
