@@ -1,15 +1,12 @@
 :root {
-  --content-width: 1180px;
-  --content-padding: 42px;
+  --content-width: 840px;
+  --content-padding: 56px;
 }
 /* =========================================
    HEADER
    ========================================= */
 
 .header {
-  padding-right: max(24px, calc((100% - var(--content-width)) / 2));
-  padding-left: max(24px, calc((100% - var(--content-width)) / 2));
-
   position: fixed;
   z-index: 20;
   top: 0;
@@ -21,14 +18,11 @@
   align-items: center;
   gap: 28px;
 
-  padding: 0 max(24px, calc((100% - var(--content-width)) / 2));
+  /* full-width header: logo at the far left, menu at the far right */
+  padding: 0 clamp(24px, 3vw, 48px);
   border-bottom: 1px solid var(--line);
 
-  background: color-mix(
-    in srgb,
-    var(--bg) 88%,
-    transparent
-  );
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
 
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -72,31 +66,23 @@
   display: none;
 }
 
-
 /* =========================================
-   LIQUID-GLASS NAVIGATION
+   SCROLL BEHAVIOUR
    ========================================= */
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 40px;
+  scroll-padding-top: 90px;
 }
 
 .section,
 .contact-section {
-  scroll-margin-top: 40px;
+  scroll-margin-top: 90px;
 }
 
-@media (max-width: 900px) {
-  html {
-    scroll-padding-top: 40px;
-  }
-
-  .section,
-  .contact-section {
-    scroll-margin-top: 40px;
-  }
-}
+/* =========================================
+   LIQUID-GLASS NAVIGATION
+   ========================================= */
 
 .nav {
   display: flex;
@@ -109,12 +95,7 @@ html {
   border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 999px;
 
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.16),
-      rgba(255, 255, 255, 0.05)
-    );
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05));
 
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.08),
@@ -153,12 +134,7 @@ footer a {
 .nav a:hover {
   color: var(--text);
 
-  background:
-    color-mix(
-      in srgb,
-      var(--surface) 65%,
-      transparent
-    );
+  background: color-mix(in srgb, var(--surface) 65%, transparent);
 
   transform: translateY(-1px);
 }
@@ -167,20 +143,10 @@ footer a {
   color: var(--text);
   border-color: rgba(255, 255, 255, 0.42);
 
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.38),
-      rgba(255, 255, 255, 0.12)
-    );
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.12));
 
   box-shadow:
-    0 8px 24px
-      color-mix(
-        in srgb,
-        var(--accent) 18%,
-        transparent
-      ),
+    0 8px 24px color-mix(in srgb, var(--accent) 18%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.6),
     inset 0 -1px 0 rgba(255, 255, 255, 0.12);
 
@@ -237,7 +203,6 @@ footer a:hover {
   color: var(--accent);
 }
 
-
 /* =========================================
    HERO
    ========================================= */
@@ -250,7 +215,7 @@ footer a:hover {
   align-items: center;
 
   margin: 0 auto;
-  padding: 148px 24px 78px;
+  padding: 148px var(--content-padding) 78px;
 
   box-sizing: border-box;
 }
@@ -305,7 +270,6 @@ footer a:hover {
   margin-top: 34px;
 }
 
-
 /* =========================================
    BUTTONS
    ========================================= */
@@ -343,7 +307,6 @@ footer a:hover {
   background: transparent;
   color: var(--text);
 }
-
 
 /* =========================================
    SOCIAL LINKS
@@ -388,7 +351,6 @@ footer a:hover {
   fill: currentColor;
 }
 
-
 /* =========================================
    PROFILE IMAGE AND ORBITS
    ========================================= */
@@ -397,7 +359,7 @@ footer a:hover {
   position: relative;
 
   display: grid;
-  height: 430px;
+  height: 360px;
   place-items: center;
 }
 
@@ -412,20 +374,9 @@ footer a:hover {
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
 
-  background:
-    linear-gradient(
-      145deg,
-      var(--accent),
-      #7357ff
-    );
+  background: linear-gradient(145deg, var(--accent), #7357ff);
 
-  box-shadow:
-    0 30px 90px
-      color-mix(
-        in srgb,
-        var(--accent) 35%,
-        transparent
-      );
+  box-shadow: 0 30px 90px color-mix(in srgb, var(--accent) 35%, transparent);
 
   object-fit: cover;
   object-position: center;
@@ -457,28 +408,27 @@ footer a:hover {
 }
 
 .orbit-one {
-  width: 330px;
-  height: 330px;
+  width: 270px;
+  height: 270px;
 }
 
 .orbit-two {
-  width: 410px;
-  height: 410px;
+  width: 320px;
+  height: 320px;
 
   animation-duration: 24s;
   animation-direction: reverse;
 }
-
 
 /* =========================================
    GENERAL SECTIONS
    ========================================= */
 
 .section {
-  max-width: 1180px;
+  max-width: var(--content-width);
 
   margin: 0 auto;
-  padding: 110px 24px;
+  padding: 110px var(--content-padding);
 
   border-top: 1px solid var(--line);
 
@@ -498,7 +448,6 @@ footer a:hover {
   line-height: 1;
   letter-spacing: -0.055em;
 }
-
 
 /* =========================================
    ABOUT
@@ -540,7 +489,6 @@ footer a:hover {
 .info-card span {
   color: var(--muted);
 }
-
 
 /* =========================================
    EDUCATION AND WORK TIMELINE
@@ -603,7 +551,6 @@ footer a:hover {
   line-height: 1.7;
 }
 
-
 /* =========================================
    INSTITUTION LOGOS AND LINKS
    Logo aligns with institution name
@@ -613,10 +560,10 @@ footer a:hover {
   display: grid;
   grid-template-columns: 58px minmax(0, 1fr);
   grid-template-areas:
-    ". period"
-    ". degree"
-    "logo institution"
-    ". details";
+    '. period'
+    '. degree'
+    'logo institution'
+    '. details';
   column-gap: 18px;
   align-items: center;
 }
@@ -691,24 +638,14 @@ footer a:hover {
   border-color: var(--accent);
 
   box-shadow:
-    0 12px 28px
-      color-mix(
-        in srgb,
-        var(--accent) 18%,
-        transparent
-      ),
+    0 12px 28px color-mix(in srgb, var(--accent) 18%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
 
   transform: translateY(-3px);
 }
 
 .institution-logo-link:focus-visible {
-  outline: 3px solid
-    color-mix(
-      in srgb,
-      var(--accent) 40%,
-      transparent
-    );
+  outline: 3px solid color-mix(in srgb, var(--accent) 40%, transparent);
 
   outline-offset: 4px;
 }
@@ -767,7 +704,6 @@ footer a:hover {
   border-color: rgba(255, 255, 255, 0.2);
 }
 
-
 /* =========================================
    WORK ITEM ADJUSTMENT
    Work does not have a separate institution h4
@@ -775,16 +711,15 @@ footer a:hover {
 
 #experience .institution-item {
   grid-template-areas:
-    ". period"
-    "logo degree"
-    ". details";
+    '. period'
+    'logo degree'
+    '. details';
 }
 
 #experience .institution-content h3 {
   align-self: center;
   margin: 0;
 }
-
 
 /* =========================================
    TABLET
@@ -811,7 +746,6 @@ footer a:hover {
     max-height: 40px !important;
   }
 }
-
 
 /* =========================================
    SMALL MOBILE
@@ -851,13 +785,12 @@ footer a:hover {
   }
 }
 
-
 /* =========================================
    SKILLS
    ========================================= */
 
 .skills-intro {
-  max-width: 620px;
+  max-width: none;
   margin: 22px 0 0;
 
   color: var(--muted);
@@ -867,7 +800,7 @@ footer a:hover {
 
 .capability-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 }
 
@@ -884,20 +817,11 @@ footer a:hover {
   border: 1px solid var(--line);
   border-radius: 22px;
 
-  background:
-    linear-gradient(
-      145deg,
-      color-mix(
-        in srgb,
-        var(--surface) 96%,
-        transparent
-      ),
-      color-mix(
-        in srgb,
-        var(--accent) 4%,
-        var(--surface)
-      )
-    );
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--surface) 96%, transparent),
+    color-mix(in srgb, var(--accent) 4%, var(--surface))
+  );
 
   box-shadow:
     0 16px 50px rgba(0, 0, 0, 0.04),
@@ -912,20 +836,10 @@ footer a:hover {
 }
 
 .capability-card:hover {
-  border-color:
-    color-mix(
-      in srgb,
-      var(--accent) 60%,
-      var(--line)
-    );
+  border-color: color-mix(in srgb, var(--accent) 60%, var(--line));
 
   box-shadow:
-    0 22px 55px
-      color-mix(
-        in srgb,
-        var(--accent) 12%,
-        transparent
-      ),
+    0 22px 55px color-mix(in srgb, var(--accent) 12%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
 
   transform: translateY(-7px);
@@ -1027,7 +941,6 @@ footer a:hover {
   color: var(--accent);
 }
 
-
 /* =========================================
    SKILL ICONS
    ========================================= */
@@ -1041,21 +954,11 @@ footer a:hover {
   flex-shrink: 0;
   place-items: center;
 
-  border: 1px solid
-    color-mix(
-      in srgb,
-      var(--skill-color) 30%,
-      var(--line)
-    );
+  border: 1px solid color-mix(in srgb, var(--skill-color) 30%, var(--line));
 
   border-radius: 10px;
 
-  background:
-    color-mix(
-      in srgb,
-      var(--skill-color) 8%,
-      var(--surface)
-    );
+  background: color-mix(in srgb, var(--skill-color) 8%, var(--surface));
 
   color: var(--skill-color);
 
@@ -1088,6 +991,10 @@ footer a:hover {
   --skill-color: #f7df1e;
 }
 
+.skill-icon-wordpress {
+  --skill-color: #21759b;
+}
+
 .skill-icon-cryptography {
   --skill-color: #7c5cff;
 }
@@ -1112,18 +1019,24 @@ footer a:hover {
   --skill-color: #9999ff;
 }
 
+.skill-icon-python {
+  --skill-color: #3776ab;
+}
+
+.skill-icon-cplusplus {
+  --skill-color: #00599c;
+}
+
+.skill-icon-seo {
+  --skill-color: #20a464;
+}
+
 .capability-list li:hover .skill-icon {
   color: #ffffff;
   border-color: var(--skill-color);
   background: var(--skill-color);
 
-  box-shadow:
-    0 7px 18px
-      color-mix(
-        in srgb,
-        var(--skill-color) 28%,
-        transparent
-      );
+  box-shadow: 0 7px 18px color-mix(in srgb, var(--skill-color) 28%, transparent);
 
   transform: translateY(-2px) scale(1.04);
 }
@@ -1132,7 +1045,6 @@ footer a:hover {
   min-width: 0;
   overflow-wrap: anywhere;
 }
-
 
 /* =========================================
    CARD DECORATION
@@ -1147,12 +1059,7 @@ footer a:hover {
   width: 170px;
   height: 170px;
 
-  border: 1px solid
-    color-mix(
-      in srgb,
-      var(--accent) 16%,
-      transparent
-    );
+  border: 1px solid color-mix(in srgb, var(--accent) 16%, transparent);
 
   border-radius: 50%;
 
@@ -1163,12 +1070,7 @@ footer a:hover {
 .capability-decoration span {
   position: absolute;
 
-  border: 1px solid
-    color-mix(
-      in srgb,
-      var(--accent) 14%,
-      transparent
-    );
+  border: 1px solid color-mix(in srgb, var(--accent) 14%, transparent);
 
   border-radius: 50%;
 }
@@ -1184,14 +1086,8 @@ footer a:hover {
 .capability-decoration span:nth-child(3) {
   inset: 66px;
 
-  background:
-    color-mix(
-      in srgb,
-      var(--accent) 10%,
-      transparent
-    );
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
 }
-
 
 /* =========================================
    SKILLS TABLET
@@ -1215,7 +1111,6 @@ footer a:hover {
     padding-top: 0;
   }
 }
-
 
 /* =========================================
    SKILLS MOBILE
@@ -1245,13 +1140,12 @@ footer a:hover {
   }
 }
 
-
 /* =========================================
    HOBBIES
    ========================================= */
 
 .hobbies-intro {
-  max-width: 640px;
+  max-width: none;
   margin: 22px 0 0;
 
   color: var(--muted);
@@ -1281,20 +1175,11 @@ footer a:hover {
   border: 1px solid var(--line);
   border-radius: 24px;
 
-  background:
-    linear-gradient(
-      145deg,
-      color-mix(
-        in srgb,
-        var(--surface) 97%,
-        transparent
-      ),
-      color-mix(
-        in srgb,
-        var(--accent) 4%,
-        var(--surface)
-      )
-    );
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--surface) 97%, transparent),
+    color-mix(in srgb, var(--accent) 4%, var(--surface))
+  );
 
   box-shadow:
     0 18px 55px rgba(0, 0, 0, 0.05),
@@ -1309,20 +1194,10 @@ footer a:hover {
 }
 
 .hobby-card:hover {
-  border-color:
-    color-mix(
-      in srgb,
-      var(--accent) 55%,
-      var(--line)
-    );
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
 
   box-shadow:
-    0 24px 60px
-      color-mix(
-        in srgb,
-        var(--accent) 13%,
-        transparent
-      ),
+    0 24px 60px color-mix(in srgb, var(--accent) 13%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.28);
 
   transform: translateY(-7px);
@@ -1362,31 +1237,15 @@ footer a:hover {
   place-items: center;
 
   margin-top: 54px;
-  border: 1px solid
-    color-mix(
-      in srgb,
-      var(--accent) 32%,
-      var(--line)
-    );
+  border: 1px solid color-mix(in srgb, var(--accent) 32%, var(--line));
 
   border-radius: 22px;
 
-  background:
-    color-mix(
-      in srgb,
-      var(--accent) 9%,
-      var(--surface)
-    );
+  background: color-mix(in srgb, var(--accent) 9%, var(--surface));
 
   color: var(--accent);
 
-  box-shadow:
-    0 12px 32px
-      color-mix(
-        in srgb,
-        var(--accent) 13%,
-        transparent
-      );
+  box-shadow: 0 12px 32px color-mix(in srgb, var(--accent) 13%, transparent);
 
   transition:
     color 200ms ease,
@@ -1408,13 +1267,7 @@ footer a:hover {
   background: var(--accent);
   color: #ffffff;
 
-  box-shadow:
-    0 14px 34px
-      color-mix(
-        in srgb,
-        var(--accent) 30%,
-        transparent
-      );
+  box-shadow: 0 14px 34px color-mix(in srgb, var(--accent) 30%, transparent);
 
   transform: rotate(-5deg) scale(1.05);
 }
@@ -1441,7 +1294,6 @@ footer a:hover {
   line-height: 1.75;
 }
 
-
 /* =========================================
    GAME LIST
    ========================================= */
@@ -1463,8 +1315,7 @@ footer a:hover {
 
 .game-list ul {
   display: grid;
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 
   gap: 8px;
 
@@ -1484,12 +1335,7 @@ footer a:hover {
   border: 1px solid var(--line);
   border-radius: 12px;
 
-  background:
-    color-mix(
-      in srgb,
-      var(--surface) 92%,
-      var(--accent) 8%
-    );
+  background: color-mix(in srgb, var(--surface) 92%, var(--accent) 8%);
 
   color: var(--text);
   font-size: 13px;
@@ -1511,12 +1357,7 @@ footer a:hover {
 .game-list li:hover {
   border-color: var(--accent);
 
-  background:
-    color-mix(
-      in srgb,
-      var(--accent) 12%,
-      var(--surface)
-    );
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
 
   color: var(--accent);
 
@@ -1534,7 +1375,6 @@ footer a:hover {
   box-shadow: 0 0 8px var(--accent);
 }
 
-
 /* =========================================
    HOBBY CARD DECORATION
    ========================================= */
@@ -1548,12 +1388,7 @@ footer a:hover {
   width: 210px;
   height: 210px;
 
-  border: 1px solid
-    color-mix(
-      in srgb,
-      var(--accent) 15%,
-      transparent
-    );
+  border: 1px solid color-mix(in srgb, var(--accent) 15%, transparent);
 
   border-radius: 50%;
 
@@ -1564,12 +1399,7 @@ footer a:hover {
 .hobby-card-decoration span {
   position: absolute;
 
-  border: 1px solid
-    color-mix(
-      in srgb,
-      var(--accent) 13%,
-      transparent
-    );
+  border: 1px solid color-mix(in srgb, var(--accent) 13%, transparent);
 
   border-radius: 50%;
 }
@@ -1585,14 +1415,8 @@ footer a:hover {
 .hobby-card-decoration span:nth-child(3) {
   inset: 82px;
 
-  background:
-    color-mix(
-      in srgb,
-      var(--accent) 9%,
-      transparent
-    );
+  background: color-mix(in srgb, var(--accent) 9%, transparent);
 }
-
 
 /* =========================================
    HOBBIES TABLET
@@ -1615,7 +1439,6 @@ footer a:hover {
     margin-top: 30px;
   }
 }
-
 
 /* =========================================
    HOBBIES MOBILE
@@ -1666,8 +1489,6 @@ footer a:hover {
   }
 }
 
-
-
 /* =========================================
    CONTACT
    ========================================= */
@@ -1701,12 +1522,7 @@ footer a:hover {
 .contact-section p:not(.eyebrow) {
   margin: 22px 0 28px;
 
-  color:
-    color-mix(
-      in srgb,
-      var(--bg) 68%,
-      transparent
-    );
+  color: color-mix(in srgb, var(--bg) 68%, transparent);
 }
 
 .contact-section .button {
@@ -1716,7 +1532,6 @@ footer a:hover {
   color: var(--text);
 }
 
-
 /* =========================================
    FOOTER
    ========================================= */
@@ -1724,19 +1539,18 @@ footer a:hover {
 footer {
   display: flex;
   min-height: 90px;
-  max-width: 1180px;
+  max-width: var(--content-width);
   align-items: center;
   justify-content: space-between;
 
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--content-padding);
 
   color: var(--muted);
   font-size: 13px;
 
   box-sizing: border-box;
 }
-
 
 /* =========================================
    REVEAL ANIMATION
@@ -1763,7 +1577,6 @@ footer {
     transform: rotate(360deg);
   }
 }
-
 
 /* =========================================
    TABLET AND MOBILE
@@ -1818,8 +1631,7 @@ footer {
 
     background: var(--surface);
 
-    box-shadow:
-      0 18px 45px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
 
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
@@ -1897,37 +1709,9 @@ footer {
 
   .about-grid {
     grid-template-columns: 1fr;
-  }
-
-  .about-grid {
     gap: 45px;
   }
-
-
-  /*
-   * Slightly smaller institution logos on tablets.
-   */
-  .institution-item {
-    grid-template-columns: 52px minmax(0, 1fr);
-    gap: 14px;
-  }
-
-  .institution-logo-link {
-    width: 52px;
-    height: 52px;
-    min-width: 52px;
-    min-height: 52px;
-
-    padding: 6px;
-    border-radius: 12px;
-  }
-
-  .institution-logo {
-    max-width: 40px !important;
-    max-height: 40px !important;
-  }
 }
-
 
 /* =========================================
    SMALL MOBILE
@@ -1981,44 +1765,6 @@ footer {
 
   .section {
     padding-block: 78px;
-  }
-
-  .skill-grid {
-    grid-template-columns: 1fr;
-  }
-
-
-  /*
-   * Compact institution logo layout.
-   */
-  .institution-item {
-    grid-template-columns: 46px minmax(0, 1fr);
-    gap: 12px;
-  }
-
-  .institution-logo-link {
-    width: 46px;
-    height: 46px;
-    min-width: 46px;
-    min-height: 46px;
-
-    padding: 6px;
-    border-radius: 11px;
-  }
-
-  .institution-logo {
-    max-width: 34px !important;
-    max-height: 34px !important;
-  }
-
-  .institution-item h3 {
-    margin-top: 7px;
-
-    font-size: 22px;
-  }
-
-  .institution-name-link {
-    align-items: flex-start;
   }
 
   footer {
@@ -2078,7 +1824,6 @@ svg {
   padding-top: 70px;
   padding-bottom: 90px;
 }
-
 
 .page-content > .contact-section {
   min-height: calc(100vh - 78px);
@@ -2141,10 +1886,10 @@ footer {
     padding-top: 68px;
   }
 
-.page-content > .hero,
-.page-content > .contact-section {
-  min-height: calc(100vh - 78px);
-}
+  .page-content > .hero,
+  .page-content > .contact-section {
+    min-height: calc(100vh - 68px);
+  }
 
   .page-content > .hero {
     padding-top: 32px;
