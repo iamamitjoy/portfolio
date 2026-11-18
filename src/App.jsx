@@ -375,12 +375,41 @@ function App() {
 
   const validSections = ['home', 'about', 'education', 'experience', 'skills', 'hobbies', 'contact']
 
-  const getSectionFromHash = () => {
-    const hash = window.location.hash.replace('#', '')
-    return validSections.includes(hash) ? hash : 'home'
+  const sectionTitles = {
+    home: 'Home',
+    about: 'About',
+    education: 'Education',
+    experience: 'Work',
+    skills: 'Skills',
+    hobbies: 'Hobbies',
+    contact: 'Contact',
   }
 
-  const [activeSection, setActiveSection] = useState(getSectionFromHash)
+  const getSectionFromPath = () => {
+    const path = window.location.pathname.replace(/^\/|\/$/g, '')
+    if (path === '') return 'home'
+    return validSections.includes(path) ? path : 'home'
+  }
+
+  const [activeSection, setActiveSection] = useState(() => {
+    // Support old links like /#about by mapping them to the new path
+    const oldHash = window.location.hash.replace('#', '')
+    if (oldHash && validSections.includes(oldHash)) {
+      return oldHash
+    }
+    return getSectionFromPath()
+  })
+
+  useEffect(() => {
+    const oldHash = window.location.hash.replace('#', '')
+    if (oldHash && validSections.includes(oldHash)) {
+      window.history.replaceState(null, '', oldHash === 'home' ? '/' : `/${oldHash}`)
+    }
+  }, [])
+
+  useEffect(() => {
+    document.title = `${sectionTitles[activeSection]} | ${portfolio.name}`
+  }, [activeSection])
 
   useEffect(() => {
     document.documentElement.dataset.theme = darkMode ? 'dark' : 'light'
@@ -410,13 +439,13 @@ function App() {
   }, [activeSection])
 
   useEffect(() => {
-    const handleHashChange = () => {
-      setActiveSection(getSectionFromHash())
+    const handlePopState = () => {
+      setActiveSection(getSectionFromPath())
       window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
     }
 
-    window.addEventListener('hashchange', handleHashChange)
-    return () => window.removeEventListener('hashchange', handleHashChange)
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
   }, [])
 
   const closeMenu = () => setMenuOpen(false)
@@ -426,9 +455,9 @@ function App() {
     setActiveSection(nextSection)
     closeMenu()
 
-    const nextHash = `#${nextSection}`
-    if (window.location.hash !== nextHash) {
-      window.history.pushState(null, '', nextHash)
+    const nextPath = nextSection === 'home' ? '/' : `/${nextSection}`
+    if (window.location.pathname !== nextPath) {
+      window.history.pushState(null, '', nextPath)
     }
 
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
@@ -479,7 +508,7 @@ function App() {
   return (
     <>
       <header className="header">
-        <a className="brand" href="#home" onClick={handleHomeClick}>
+        <a className="brand" href="/" onClick={handleHomeClick}>
           <span>{portfolio.shortName}</span>
         </a>
 
@@ -499,7 +528,7 @@ function App() {
           {navigationItems.map((item) => (
             <a
               key={item.id}
-              href={`#${item.id}`}
+              href={`/${item.id}`}
               className={activeSection === item.id ? 'active' : ''}
               aria-current={activeSection === item.id ? 'page' : undefined}
               onClick={(event) => handleNavClick(event, item.id)}
@@ -534,7 +563,7 @@ function App() {
               <div className="hero-actions">
                 <a
                   className="button primary"
-                  href="#hobbies"
+                  href="/hobbies"
                   onClick={(event) => handleNavClick(event, 'hobbies')}
                 >
                   Explore my interests
@@ -825,7 +854,7 @@ function App() {
           © {new Date().getFullYear()} {portfolio.name}
         </p>
 
-        <a href="#home" onClick={handleHomeClick}>
+        <a href="/" onClick={handleHomeClick}>
           Home
         </a>
       </footer>
