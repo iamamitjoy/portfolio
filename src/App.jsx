@@ -41,7 +41,7 @@ const SITE_URL = 'https://amitjoy.vercel.app'
 
 const portfolio = {
   name: 'Amit Paul Joy',
-  shortName: 'APJ',
+  shortName: 'Amit Joy',
   role: 'Information Systems Security Professional',
   location: 'Bangladesh',
   email: 'iamamitjoy@gmail.com',
@@ -535,6 +535,11 @@ function App() {
                 <div>
                   <span>Name</span>
                   <strong>{portfolio.name}</strong>
+                </div>
+
+                <div>
+                  <span>AKA</span>
+                  <strong>{portfolio.shortName}</strong>
                 </div>
 
                 <div>

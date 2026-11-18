@@ -32,8 +32,8 @@
 
 .brand {
   display: grid;
-  width: 55px;
-  height: 55px;
+  width: 63px;
+  height: 63px;
   flex-shrink: 0;
   place-items: center;
 
@@ -45,6 +45,7 @@
   font-size: 15px;
   font-weight: 800;
   text-decoration: none;
+  text-align: center;
 }
 
 .theme-button,
