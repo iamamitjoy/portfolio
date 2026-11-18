@@ -5,13 +5,13 @@ import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
 const PAGES = [
-  { name: 'index', path: '/', changefreq: 'weekly', priority: '1.0' },
-  { name: 'about', path: '/about', changefreq: 'monthly', priority: '0.8' },
-  { name: 'education', path: '/education', changefreq: 'monthly', priority: '0.8' },
-  { name: 'experience', path: '/experience', changefreq: 'monthly', priority: '0.8' },
-  { name: 'skills', path: '/skills', changefreq: 'monthly', priority: '0.8' },
-  { name: 'hobbies', path: '/hobbies', changefreq: 'monthly', priority: '0.6' },
-  { name: 'contact', path: '/contact', changefreq: 'yearly', priority: '0.7' },
+  { name: 'index', path: '/', changefreq: 'daily', priority: '1.0' },
+  { name: 'about', path: '/about', changefreq: 'daily', priority: '1.0' },
+  { name: 'education', path: '/education', changefreq: 'daily', priority: '1.0' },
+  { name: 'experience', path: '/experience', changefreq: 'daily', priority: '1.0' },
+  { name: 'skills', path: '/skills', changefreq: 'daily', priority: '1.0' },
+  { name: 'hobbies', path: '/hobbies', changefreq: 'daily', priority: '1.0' },
+  { name: 'contact', path: '/contact', changefreq: 'daily', priority: '1.0' },
 ]
 
 function liveSitemapPlugin() {
