@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#6552f3" />
     <link rel="icon" type="image/x-icon" href="/src/assets/favicon.ico" />
-    
+
     <title>Amit Paul Joy - Information Systems Security & Web SEO</title>
     <meta name="description" content="Portfolio of Amit Paul Joy, Information Systems Security Professional in Bangladesh with an M.Sc. from BUP and expertise in cybersecurity, web dev & SEO." />
     <meta name="author" content="Amit Paul Joy" />
+    <meta name="application-name" content="Amit Paul Joy" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
     <link rel="canonical" href="https://amitjoy.vercel.app/" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
@@ -38,13 +39,29 @@
       }
     </script>
 
+    <!-- WebSite data: tells Google the site name (instead of "Vercel") -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://amitjoy.vercel.app/#website",
+        "name": "Amit Paul Joy",
+        "alternateName": ["Amit Joy", "APJ"],
+        "url": "https://amitjoy.vercel.app/",
+        "inLanguage": "en",
+        "publisher": {
+          "@id": "https://amitjoy.vercel.app/#person"
+        }
+      }
+    </script>
+
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
         "@id": "https://amitjoy.vercel.app/#person",
         "name": "Amit Paul Joy",
-        "alternateName": "APJ",
+        "alternateName": ["Amit Joy", "APJ"],
         "jobTitle": "Information Systems Security Professional",
         "description": "Information Systems Security Professional and Web/SEO Specialist from Bangladesh with an M.Sc. in Information Systems Security from BUP.",
         "url": "https://amitjoy.vercel.app/",
