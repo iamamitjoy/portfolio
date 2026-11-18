@@ -403,9 +403,15 @@ function InstitutionLink({
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [darkMode, setDarkMode] = useState(
-    localStorage.getItem('theme') === 'dark',
-  )
+  const [darkMode, setDarkMode] = useState(() => {
+  const savedTheme = localStorage.getItem('theme')
+
+  if (savedTheme) {
+    return savedTheme === 'dark'
+  }
+
+  return true
+})
 
   const validSections = [
     'home',
