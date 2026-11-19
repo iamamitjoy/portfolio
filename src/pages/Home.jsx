@@ -16,7 +16,6 @@ export default function Home() {
           <a className="button secondary" href={MAILTO}>Let's connect</a>
         </div>
 
-        // <SocialLinks />
       </div>
 
       <div className="hero-visual reveal">
