@@ -1,7 +1,6 @@
 import Icon from '../components/Icons'
 import PageSection from '../components/PageSection'
-import { hobbies, twoDigits } from '../data/site'   // or { hobbies, twoDigits }
-
+import { hobbies, twoDigits } from '../data/site'
 
 export default function Hobbies() {
   return (
@@ -39,6 +38,26 @@ export default function Hobbies() {
                 </ul>
               </div>
             )}
+
+            {/* ▼▼▼ NEW: travel places ▼▼▼ */}
+            {hobby.places && (
+              <div className="travel-groups">
+                {hobby.places.map((group) => (
+                  <div className="game-list" key={group.region}>
+                    <p className="game-list-title">{group.region}</p>
+                    <ul>
+                      {group.cities.map((city) => (
+                        <li key={city}>
+                          <span className="game-indicator" aria-hidden="true" />
+                          <span>{city}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            )}
+            {/* ▲▲▲ END NEW ▲▲▲ */}
 
             <div className="hobby-card-decoration" aria-hidden="true">
               <span />
