@@ -1,26 +1,16 @@
-import { SkillIcon } from '../components/Icons'
-import { portfolio } from '../data/portfolio'
+import Icon from '../components/Icons'
+import PageSection from '../components/PageSection'
+import { skills, twoDigits } from '../data/site'   // or { hobbies, twoDigits }
 
-function Skills() {
+
+export default function Skills() {
   return (
-    <section className="section skills-section page-panel" id="skills">
-      <div className="section-heading reveal">
-        <p className="eyebrow">04 / What I know</p>
-
-        <h2>Skills</h2>
-
-        <p className="skills-intro">
-          A combination of web development, information security, productivity, and digital media
-          skills.
-        </p>
-      </div>
-
+    <PageSection id="skills" className="skills-section">
       <div className="capability-grid">
-        {portfolio.skills.map((group) => (
+        {skills.map((group, index) => (
           <article className="capability-card reveal" key={group.category}>
             <div className="capability-card-header">
-              <span className="capability-number">{group.number}</span>
-
+              <span className="capability-number">{twoDigits(index + 1)}</span>
               <span className="capability-status" aria-hidden="true">
                 <span />
                 Skill set
@@ -29,7 +19,6 @@ function Skills() {
 
             <div className="capability-content">
               <h3>{group.category}</h3>
-
               <p>{group.description}</p>
             </div>
 
@@ -37,9 +26,8 @@ function Skills() {
               {group.skills.map((skill) => (
                 <li key={skill.name}>
                   <span className={`skill-icon skill-icon-${skill.icon}`}>
-                    <SkillIcon name={skill.icon} />
+                    <Icon name={skill.icon} />
                   </span>
-
                   <span className="skill-name">{skill.name}</span>
                 </li>
               ))}
@@ -53,8 +41,6 @@ function Skills() {
           </article>
         ))}
       </div>
-    </section>
+    </PageSection>
   )
 }
-
-export default Skills

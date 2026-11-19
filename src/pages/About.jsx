@@ -1,46 +1,28 @@
-import { portfolio } from '../data/portfolio'
+import PageSection from '../components/PageSection'
+import { SITE } from '../data/site'
 
-function About() {
+const FACTS = [
+  ['Name', SITE.name],
+  ['AKA', SITE.shortName],
+  ['Role', SITE.role],
+  ['Location', SITE.location],
+  ['Email', SITE.email],
+]
+
+export default function About() {
   return (
-    <section className="section page-panel" id="about">
-      <div className="section-heading reveal">
-        <p className="eyebrow">01 / Introduction</p>
-
-        <h2>About Me</h2>
-      </div>
-
+    <PageSection id="about">
       <div className="about-grid">
-        <p className="about-lead reveal">{portfolio.about}</p>
-
+        <p className="about-lead reveal">{SITE.about}</p>
         <div className="info-card reveal">
-          <div>
-            <span>Name</span>
-            <strong>{portfolio.name}</strong>
-          </div>
-
-          <div>
-            <span>AKA</span>
-            <strong>{portfolio.shortName}</strong>
-          </div>
-
-          <div>
-            <span>Role</span>
-            <strong>{portfolio.role}</strong>
-          </div>
-
-          <div>
-            <span>Location</span>
-            <strong>{portfolio.location}</strong>
-          </div>
-
-          <div>
-            <span>Email</span>
-            <strong>{portfolio.email}</strong>
-          </div>
+          {FACTS.map(([label, value]) => (
+            <div key={label}>
+              <span>{label}</span>
+              <strong>{value}</strong>
+            </div>
+          ))}
         </div>
       </div>
-    </section>
+    </PageSection>
   )
 }
-
-export default About

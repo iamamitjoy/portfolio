@@ -1,21 +1,13 @@
-import { portfolio } from '../data/portfolio'
+import { PageHeading } from '../components/PageSection'
+import { MAILTO } from '../data/site'
 
-function Contact() {
+export default function Contact() {
   return (
-    <section className="contact-section page-panel" id="contact">
+    <section className="contact-section page-panel">
       <div className="contact-content reveal">
-        <p className="eyebrow">06 / Get in touch</p>
-
-        <h2>Have a project or opportunity?</h2>
-
-        <p>I am always happy to learn, collaborate, and discuss new ideas.</p>
-
-        <a className="button primary" href={`mailto:${portfolio.email}`}>
-          Send me an email
-        </a>
+        <PageHeading id="contact" />
+        <a className="button primary" href={MAILTO}>Send me an email</a>
       </div>
     </section>
   )
 }
-
-export default Contact

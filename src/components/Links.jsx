@@ -1,23 +1,37 @@
-export function ExternalLink({ href, className, title, children, ...rest }) {
+// Reusable external link component
+export function ExternalLink({
+  href,
+  children,
+  className = '',
+  title,
+  ...props
+}) {
+  if (!href) {
+    return <span className={className}>{children}</span>
+  }
+
   return (
     <a
-      className={className}
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      className={className}
       title={title}
-      {...rest}
+      {...props}
     >
       {children}
     </a>
   )
 }
 
-// One timeline entry. Used by the Education page (type="education")
-// and the Work page (type="work").
+// Timeline item for education and work
 export function InstitutionItem({ item, type }) {
   const isEducation = type === 'education'
-  const name = isEducation ? item.school : item.title
+
+  const name = isEducation
+    ? item.school
+    : item.title
+
   const visitLabel = `Visit ${name} website`
 
   return (
@@ -30,7 +44,12 @@ export function InstitutionItem({ item, type }) {
         aria-label={visitLabel}
         title={visitLabel}
       >
-        <img className="institution-logo" src={item.logo} alt={`${name} logo`} loading="lazy" />
+        <img
+          className="institution-logo"
+          src={item.logo}
+          alt={`${name || 'Institution'} logo`}
+          loading="lazy"
+        />
       </ExternalLink>
 
       <div className="institution-content">
@@ -41,9 +60,13 @@ export function InstitutionItem({ item, type }) {
             <h3>{item.degree}</h3>
 
             <h4>
-              <ExternalLink className="institution-name-link" href={item.website} title={visitLabel}>
+              <ExternalLink
+                className="institution-name-link"
+                href={item.website}
+                title={visitLabel}
+              >
                 {item.school}
-                <span aria-hidden="true">↗</span>
+                <span aria-hidden="true"> ↗</span>
               </ExternalLink>
             </h4>
           </>
@@ -55,7 +78,7 @@ export function InstitutionItem({ item, type }) {
               title={visitLabel}
             >
               {item.title}
-              <span aria-hidden="true">↗</span>
+              <span aria-hidden="true"> ↗</span>
             </ExternalLink>
           </h3>
         )}

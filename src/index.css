@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Syne:wght@600;700;800&display=swap');
+/* Fonts are loaded with <link> in the generated HTML <head> (faster than @import). */
 
 :root {
   --bg: #f4f5f7;
@@ -9,13 +9,13 @@
   --accent: #6552f3;
   --tag: #edf0f4;
   --display: 'Syne', sans-serif;
+
   font-family: 'Manrope', sans-serif;
   color: var(--text);
   background: var(--bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  scroll-behavior: smooth;
 }
 
 :root[data-theme='dark'] {
@@ -35,11 +35,9 @@
 body {
   margin: 0;
   min-width: 320px;
-  background: var(--bg);
 }
 
-button,
-a {
+button {
   font-family: inherit;
 }
 

@@ -1,31 +1,22 @@
 import { useEffect, useState } from 'react'
+import { NAV_ITEMS, SITE } from '../data/site'
 
-import { NAV_ITEMS, portfolio } from '../data/portfolio'
-
-// The inline script in each HTML file sets data-theme before first paint.
-// Read it back here so React starts in the same theme and nothing flashes.
-const getInitialDarkMode = () => {
-  const applied = document.documentElement.dataset.theme
-  if (applied) return applied === 'dark'
-
-  try {
-    const savedTheme = localStorage.getItem('theme')
-    return savedTheme ? savedTheme === 'dark' : true
-  } catch {
-    return true
-  }
-}
-
-function Layout({ pageId, children }) {
+export default function Layout({ pageId, children }) {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [darkMode, setDarkMode] = useState(getInitialDarkMode)
+
+  // The inline script in <head> already applied the saved theme before first paint,
+  // so we just read it back. No need to touch localStorage here.
+  const [darkMode, setDarkMode] = useState(
+    () => document.documentElement.dataset.theme !== 'light',
+  )
 
   useEffect(() => {
-    document.documentElement.dataset.theme = darkMode ? 'dark' : 'light'
+    const theme = darkMode ? 'dark' : 'light'
+    document.documentElement.dataset.theme = theme
     try {
-      localStorage.setItem('theme', darkMode ? 'dark' : 'light')
+      localStorage.setItem('theme', theme)
     } catch {
-      /* storage unavailable */
+      /* storage unavailable (private mode) */
     }
   }, [darkMode])
 
@@ -42,7 +33,6 @@ function Layout({ pageId, children }) {
       },
       { threshold: 0.08 },
     )
-
     document.querySelectorAll('.reveal').forEach((element) => observer.observe(element))
     return () => observer.disconnect()
   }, [])
@@ -50,9 +40,8 @@ function Layout({ pageId, children }) {
   return (
     <>
       <header className="header">
-        {/* Real links: every menu item loads its own HTML page. */}
         <a className="brand" href="/">
-          <span>{portfolio.shortName}</span>
+          <span>{SITE.shortName}</span>
         </a>
 
         <button
@@ -72,7 +61,7 @@ function Layout({ pageId, children }) {
             <a
               key={item.id}
               href={item.path}
-              className={pageId === item.id ? 'active' : ''}
+              className={pageId === item.id ? 'active' : undefined}
               aria-current={pageId === item.id ? 'page' : undefined}
             >
               {item.label}
@@ -94,13 +83,10 @@ function Layout({ pageId, children }) {
 
       <footer>
         <p>
-          © {new Date().getFullYear()} {portfolio.name}
+          © {new Date().getFullYear()} {SITE.name}
         </p>
-
         <a href="/">Home</a>
       </footer>
     </>
   )
 }
-
-export default Layout
