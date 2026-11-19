@@ -1,3 +1,6 @@
+import Icon from './Icons'
+import { MAILTO, social } from '../data/site'
+
 // Reusable external link component
 export function ExternalLink({
   href,
@@ -21,6 +24,21 @@ export function ExternalLink({
     >
       {children}
     </a>
+  )
+}
+// Social icons (all networks + email), reused on Home and in the footer
+export function SocialLinks({ className = 'social-row' }) {
+  return (
+    <div className={className}>
+      {social.map(({ label, url }) => (
+        <ExternalLink key={label} href={url} aria-label={label} title={label}>
+          <Icon name={label.toLowerCase()} />
+        </ExternalLink>
+      ))}
+      <a href={MAILTO} aria-label="Email" title="Email">
+        <Icon name="email" />
+      </a>
+    </div>
   )
 }
 
