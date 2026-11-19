@@ -80,10 +80,10 @@ const PAGE_LIST = [
     eyebrow: 'Beyond work',
     heading: 'Hobbies',
     intro:
-      'Activities I enjoy during my free time, from outdoor sports and chess to competitive and open-world gaming.',
-    title: 'Hobbies - Cricket, Chess & Gaming | Amit Paul Joy',
+      'Activities I enjoy during my free time, from outdoor sports and chess to gaming and travelling across Bangladesh and beyond.',
+    title: 'Hobbies - Travel, Cricket, Chess & Gaming | Amit Paul Joy',
     description:
-      'Hobbies of Amit Paul Joy, including cricket, chess and video games like EA SPORTS FC, eFootball and League of Legends.',
+      'Hobbies of Amit Paul Joy: travelling across Bangladesh and the Maldives, cricket, chess, and video games like EA SPORTS FC and League of Legends.',
   },
   {
     id: 'contact',
@@ -219,6 +219,24 @@ export const skills = [
 ]
 
 export const hobbies = [
+    {
+    title: 'Travelling',
+    type: 'Exploration',
+    description:
+      'I enjoy exploring new places, from hills and tea gardens to beaches and islands, and experiencing different cultures and landscapes.',
+    icon: 'travel',
+    places: [
+      {
+        region: 'Bangladesh',
+        cities: ['Chattagram', "Cox's Bazar", 'Cumilla', 'Mymensingh', 'Sylhet', 'Rangamati', 'Khagrachhari', 'Bandarban', 'Jaflong', 'Sreemangal'],
+      },
+      {
+        region: 'Overseas',
+        cities: ['Maldives'],
+      },
+    ],
+  },
+
   {
     title: 'Playing Cricket',
     type: 'Outdoor Activity',
@@ -238,7 +256,6 @@ export const hobbies = [
     type: 'Gaming',
     description: 'I enjoy competitive, sports, strategy, and open-world video games.',
     icon: 'gaming',
-    wide: true,
     games: [
       'EA SPORTS FC 27',
       'EA SPORTS FC Online',
