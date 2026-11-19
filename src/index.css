@@ -45,3 +45,45 @@ button {
   background: var(--accent);
   color: white;
 }
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.site-footer > p {
+  order: 1;
+  margin: 0;
+  line-height: 1;
+}
+
+.site-footer > .footer-social {
+  order: 2;
+}
+
+.site-footer > a {
+  order: 3;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.social-row.footer-social {
+  justify-content: center;
+  gap: 18px 28px;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .site-footer {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
