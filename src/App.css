@@ -2066,4 +2066,16 @@ footer {
   .institution-logo-link {
     transition: none;
   }
+
+/* =========================================
+   FOOTER SOCIAL LINKS
+   ========================================= */
+
+.social-row.footer-social {
+  justify-content: center;
+  gap: 18px 28px;
+  margin: 0;
+}
+
+
 }
