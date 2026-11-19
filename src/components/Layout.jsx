@@ -1,3 +1,4 @@
+import { SocialLinks } from './Links'
 import { useEffect, useState } from 'react'
 import { NAV_ITEMS, SITE } from '../data/site'
 
@@ -81,12 +82,14 @@ export default function Layout({ pageId, children }) {
 
       <main className="page-content">{children}</main>
 
-      <footer>
-        <p>
-          © {new Date().getFullYear()} {SITE.name}
-        </p>
+      <footer className="site-footer">
         <a href="/">Home</a>
+        <p>
+          © {new Date().getFullYear()} {"Amit Joy"}
+        </p>
+        <SocialLinks className="social-row footer-social" />
       </footer>
+
     </>
   )
 }
