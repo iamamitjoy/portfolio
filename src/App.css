@@ -1348,7 +1348,8 @@ footer a:hover {
     transform 180ms ease;
 }
 
-.game-list li:last-child {
+/* Stretch the last item only when it would sit alone in its row */
+.game-list li:last-child:nth-child(odd) {
   grid-column: 1 / -1;
 }
 
@@ -1374,7 +1375,18 @@ footer a:hover {
 }
 
 /* =========================================
-   WIDE HOBBY CARD (VIDEO GAMES)
+   TRAVEL GROUPS (BANGLADESH / OVERSEAS)
+   ========================================= */
+
+.travel-groups {
+  display: grid;
+  gap: 1rem;
+
+  margin-top: auto;
+}
+
+/* =========================================
+   WIDE HOBBY CARD
    ========================================= */
 
 .hobby-card-wide {
@@ -1386,7 +1398,7 @@ footer a:hover {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.hobby-card-wide .game-list li:last-child {
+.hobby-card-wide .game-list li:last-child:nth-child(odd) {
   grid-column: auto;
 }
 
@@ -1454,11 +1466,15 @@ footer a:hover {
     margin-top: 30px;
   }
 
+  .travel-groups {
+    margin-top: 0;
+  }
+
   .hobby-card-wide .game-list ul {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .hobby-card-wide .game-list li:last-child {
+  .hobby-card-wide .game-list li:last-child:nth-child(odd) {
     grid-column: 1 / -1;
   }
 }
@@ -1502,7 +1518,7 @@ footer a:hover {
     grid-template-columns: 1fr;
   }
 
-  .game-list li:last-child {
+  .game-list li:last-child:nth-child(odd) {
     grid-column: auto;
   }
 
@@ -1510,7 +1526,7 @@ footer a:hover {
     grid-template-columns: 1fr;
   }
 
-  .hobby-card-wide .game-list li:last-child {
+  .hobby-card-wide .game-list li:last-child:nth-child(odd) {
     grid-column: auto;
   }
 
@@ -1519,6 +1535,7 @@ footer a:hover {
     right: -110px;
   }
 }
+
 
 /* =========================================
    CONTACT
