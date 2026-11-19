@@ -133,8 +133,8 @@ ${structuredData(page)}
   </head>
   <body data-page="${page.id}">
     <div id="root">
+      <h1>${escape(page.heading)}</h1>
       <noscript>
-        <h1>${escape(page.heading)}</h1>
         <p>${description}</p>
         <nav>${noscriptNav}</nav>
       </noscript>
