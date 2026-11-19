@@ -1,6 +1,6 @@
 import {
   FaChessKnight, FaCode, FaCss3Alt, FaFileWord, FaFilm, FaGamepad, FaHtml5,
-  FaImage, FaJs, FaLock, FaSearch, FaShieldAlt, FaWordpress,
+  FaImage, FaJs, FaLock, FaPlaneDeparture, FaSearch, FaShieldAlt, FaWordpress,
 } from 'react-icons/fa'
 import {
   FaFacebookF, FaGithub, FaInstagram, FaLinkedinIn, FaPinterestP,
@@ -20,7 +20,10 @@ const ICONS = {
   cryptography: FaLock, steganography: FaImage, cybersecurity: FaShieldAlt,
   office: FaFileWord, photoshop: FaImage, premiere: FaFilm,
   // hobbies
-  cricket: MdSportsCricket, chess: FaChessKnight, gaming: FaGamepad,
+  cricket: MdSportsCricket,
+  chess: FaChessKnight,
+  gaming: FaGamepad,
+  travel: FaPlaneDeparture,
 }
 
 export default function Icon({ name }) {
