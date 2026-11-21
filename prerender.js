@@ -3,7 +3,7 @@ import fs from 'node:fs/promises'
 const { render, PAGES } = await import('./dist-ssr/entry-server.js')
 
 for (const page of PAGES) {
-  const file = page.path === '/' ? 'index.html' : `${page.path.slice(1)}.html`
+  const file = `${page.file}.html`
   const filePath = `dist/${file}`
   let html
 

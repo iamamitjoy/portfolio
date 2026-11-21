@@ -15,8 +15,7 @@ const FILE_BY_PATH = Object.fromEntries(
 function htmlPages() {
   return {
     name: 'html-pages',
-    apply: (_config, { command, isSsrBuild }) =>
-      command === 'build' && !isSsrBuild,
+    apply: (_config, { isSsrBuild }) => !isSsrBuild,
 
     // Runs before Vite reads its inputs: write one HTML file per page.
     config() {
