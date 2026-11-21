@@ -92,8 +92,6 @@ export function renderPage(page) {
     <meta property="profile:last_name" content="${escape(nameParts.at(-1))}" />`
       : `<meta property="og:type" content="website" />`
 
-  const noscriptNav = PAGES.map((p) => `<a href="${p.path}">${escape(p.label)}</a>`).join(' · ')
-
   return `<!doctype html>
 <!-- Generated from src/data/site.js by vite.config.js. Edit that file, not this one. -->
 <html lang="en">
@@ -127,18 +125,13 @@ export function renderPage(page) {
       try { document.documentElement.dataset.theme = localStorage.getItem('theme') || 'dark' }
       catch { document.documentElement.dataset.theme = 'dark' }
     </script>
+    <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
     <script type="application/ld+json">
 ${structuredData(page)}
     </script>
   </head>
   <body data-page="${page.id}">
-    <div id="root">
-      <h1>${escape(page.heading)}</h1>
-      <noscript>
-        <p>${description}</p>
-        <nav>${noscriptNav}</nav>
-      </noscript>
-    </div>
+    <div id="root"><!--app-html--></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
