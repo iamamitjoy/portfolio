@@ -1,4 +1,5 @@
 import './App.css'
+import { useEffect } from 'react'
 import Layout from './components/Layout'
 import { NAV_ITEMS } from './data/site'
 import About from './pages/About'
@@ -11,20 +12,20 @@ import Skills from './pages/Skills'
 
 const PAGE_COMPONENTS = { home: Home, about: About, education: Education, experience: Experience, skills: Skills, hobbies: Hobbies, contact: Contact }
 
-// Each generated HTML file sets <body data-page="...">
-const requested = document.body.dataset.page
-const pageId = Object.hasOwn(PAGE_COMPONENTS, requested) ? requested : 'home'
+export default function App({ pageId }) {
+  const resolvedPageId = Object.hasOwn(PAGE_COMPONENTS, pageId) ? pageId : 'home'
+  const Page = PAGE_COMPONENTS[resolvedPageId]
 
-// Old one-page links like /#about → /about
-if (pageId === 'home') {
-  const legacy = NAV_ITEMS.find((item) => `#${item.id}` === window.location.hash)
-  if (legacy) window.location.replace(legacy.path)
-}
+  useEffect(() => {
+    // Old one-page links like /#about -> /about
+    if (resolvedPageId === 'home') {
+      const legacy = NAV_ITEMS.find((item) => `#${item.id}` === window.location.hash)
+      if (legacy) window.location.replace(legacy.path)
+    }
+  }, [resolvedPageId])
 
-export default function App() {
-  const Page = PAGE_COMPONENTS[pageId]
   return (
-    <Layout pageId={pageId}>
+    <Layout pageId={resolvedPageId}>
       <Page />
     </Layout>
   )

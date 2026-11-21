@@ -50,6 +50,18 @@ export function InstitutionItem({ item, type }) {
     ? item.school
     : item.title
 
+  const dimensionsByLogo = {
+    bup: [4939, 5570],
+    bnmpc: [500, 500],
+    ddesk: [900, 900],
+    ideal: [400, 400],
+    istt: [443, 451],
+  }
+  const logoKey = typeof item.logo === 'string'
+    ? Object.keys(dimensionsByLogo).find((key) => item.logo.includes(key))
+    : null
+  const [logoWidth, logoHeight] = logoKey ? dimensionsByLogo[logoKey] : [400, 400]
+
   const visitLabel = `Visit ${name} website`
 
   return (
@@ -66,6 +78,8 @@ export function InstitutionItem({ item, type }) {
           className="institution-logo"
           src={item.logo}
           alt={`${name || 'Institution'} logo`}
+          width={logoWidth}
+          height={logoHeight}
           loading="lazy"
         />
       </ExternalLink>

@@ -21,7 +21,14 @@ export default function Home() {
       <div className="hero-visual reveal">
         <div className="orbit orbit-one" />
         <div className="orbit orbit-two" />
-        <img className="avatar" src={profilePhoto} alt={SITE.name} />
+        <img
+          className="avatar"
+          src={profilePhoto}
+          alt={SITE.name}
+          width="894"
+          height="894"
+          fetchPriority="high"
+        />
       </div>
     </section>
   )

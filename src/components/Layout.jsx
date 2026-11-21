@@ -4,22 +4,14 @@ import { NAV_ITEMS, SITE } from '../data/site'
 
 export default function Layout({ pageId, children }) {
   const [menuOpen, setMenuOpen] = useState(false)
-
-  // The inline script in <head> already applied the saved theme before first paint,
-  // so we just read it back. No need to touch localStorage here.
-  const [darkMode, setDarkMode] = useState(
-    () => document.documentElement.dataset.theme !== 'light',
-  )
+  const [darkMode, setDarkMode] = useState(true)
 
   useEffect(() => {
-    const theme = darkMode ? 'dark' : 'light'
-    document.documentElement.dataset.theme = theme
-    try {
-      localStorage.setItem('theme', theme)
-    } catch {
-      /* storage unavailable (private mode) */
-    }
-  }, [darkMode])
+    const frame = window.requestAnimationFrame(() => {
+      setDarkMode(document.documentElement.dataset.theme !== 'light')
+    })
+    return () => window.cancelAnimationFrame(frame)
+  }, [])
 
   // Fade-in on scroll for every .reveal element on this page.
   useEffect(() => {
@@ -74,7 +66,19 @@ export default function Layout({ pageId, children }) {
           className="theme-button"
           type="button"
           aria-label="Change color theme"
-          onClick={() => setDarkMode((value) => !value)}
+          onClick={() => {
+            setDarkMode((value) => {
+              const next = !value
+              const theme = next ? 'dark' : 'light'
+              document.documentElement.dataset.theme = theme
+              try {
+                localStorage.setItem('theme', theme)
+              } catch {
+                /* storage unavailable (private mode) */
+              }
+              return next
+            })
+          }}
         >
           {darkMode ? '☀' : '☾'}
         </button>
@@ -84,7 +88,7 @@ export default function Layout({ pageId, children }) {
 
       <footer className="site-footer">
         <a href="/">Home</a>
-        <p>
+        <p suppressHydrationWarning>
           © {new Date().getFullYear()} {"Amit Joy"}
         </p>
         <SocialLinks className="social-row footer-social" />
