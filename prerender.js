@@ -17,7 +17,7 @@ for (const page of PAGES) {
     throw new Error(`dist/${file} is missing the <!--app-html--> placeholder`)
   }
 
-  html = html.replace('<!--app-html-->', render(page.id))
+  html = html.replace('<!--app-html-->', () => render(page.id))
   await fs.writeFile(filePath, html)
   console.log(`Pre-rendered ${file}`)
 }
