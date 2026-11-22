@@ -695,30 +695,9 @@ footer a:hover {
   border-radius: 4px;
 }
 
-.work-name-link {
-  color: var(--text);
-}
-
 [data-theme='dark'] .institution-logo-link {
   background: #ffffff;
   border-color: rgba(255, 255, 255, 0.2);
-}
-
-/* =========================================
-   WORK ITEM ADJUSTMENT
-   Work does not have a separate institution h4
-   ========================================= */
-
-#experience .institution-item {
-  grid-template-areas:
-    '. period'
-    'logo degree'
-    '. details';
-}
-
-#experience .institution-content h3 {
-  align-self: center;
-  margin: 0;
 }
 
 /* =========================================

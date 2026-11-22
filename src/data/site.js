@@ -169,9 +169,10 @@ export const education = [
 export const work = [
   {
     name: 'Ddesk IT Limited',
+    role: 'Senior Executive - Web Development & SEO',
     period: 'August 2018 - April 2026',
     details:
-      'Worked as a Senior Executive in the Web Development Department, specializing in web development and search engine optimization - SEO.',
+      'Specialized in web development and search engine optimization - SEO.',
     logo: 'ddesk',
     website: 'https://ddeskitlimited.com/',
   },

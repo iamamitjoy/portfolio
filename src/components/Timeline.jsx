@@ -12,11 +12,12 @@ const LOGO_DIMENSIONS = {
 }
 
 function TimelineItem({ item }) {
+  const title = item.degree ?? item.role
   const visitLabel = `Visit ${item.name} website`
   const [logoWidth, logoHeight] = LOGO_DIMENSIONS[item.logo] ?? [400, 400]
   const nameLink = (
     <ExternalLink
-      className={item.degree ? 'institution-name-link' : 'institution-name-link work-name-link'}
+      className="institution-name-link"
       href={item.website}
       title={visitLabel}
     >
@@ -41,14 +42,8 @@ function TimelineItem({ item }) {
       </ExternalLink>
       <div className="institution-content">
         <p className="timeline-period">{item.period}</p>
-        {item.degree ? (
-          <>
-            <h3>{item.degree}</h3>
-            <h4>{nameLink}</h4>
-          </>
-        ) : (
-          <h3>{nameLink}</h3>
-        )}
+        {title && <h3>{title}</h3>}
+        <h4>{nameLink}</h4>
         <p>{item.details}</p>
       </div>
     </article>
@@ -59,7 +54,7 @@ export default function Timeline({ items }) {
   return (
     <div className="timeline">
       {items.map((item) => (
-        <TimelineItem key={item.degree ?? item.name} item={item} />
+        <TimelineItem key={item.degree ?? item.role ?? item.name} item={item} />
       ))}
     </div>
   )
