@@ -80,10 +80,10 @@ const PAGE_LIST = [
     eyebrow: 'Beyond work',
     heading: 'Hobbies',
     intro:
-      'Activities I enjoy during my free time, from outdoor sports and chess to gaming and travelling across Bangladesh and beyond.',
-    title: 'Hobbies - Travel, Cricket, Chess & Gaming | Amit Paul Joy',
+      'Activities I enjoy during my free time, from travelling across Bangladesh and beyond to gaming, cricket, and chess.',
+    title: 'Hobbies - Travel, Gaming, Cricket & Chess | Amit Paul Joy',
     description:
-      'Hobbies of Amit Paul Joy: travelling across Bangladesh and the Maldives, cricket, chess, and video games like EA SPORTS FC and League of Legends.',
+      'Hobbies of Amit Paul Joy: travelling across Bangladesh and the Maldives, video games like EA SPORTS FC and League of Legends, cricket, and chess.',
   },
   {
     id: 'contact',
@@ -220,7 +220,7 @@ export const skills = [
 ]
 
 export const hobbies = [
-    {
+  {
     title: 'Travelling',
     type: 'Exploration',
     description:
@@ -237,7 +237,19 @@ export const hobbies = [
       },
     ],
   },
-
+  {
+    title: 'Playing Video Games',
+    type: 'Gaming',
+    description: 'I enjoy competitive, sports, strategy, and open-world video games.',
+    icon: 'gaming',
+    games: [
+      'EA SPORTS FC 27',
+      'EA SPORTS FC Online',
+      'eFootball',
+      'League of Legends',
+      'Grand Theft Auto V',
+    ],
+  },
   {
     title: 'Playing Cricket',
     type: 'Outdoor Activity',
@@ -252,17 +264,5 @@ export const hobbies = [
       'I enjoy chess as a mind sport. It builds patience and focus, and trains me to think several moves ahead before making a decision.',
     icon: 'chess',
   },
-  {
-    title: 'Playing Video Games',
-    type: 'Gaming',
-    description: 'I enjoy competitive, sports, strategy, and open-world video games.',
-    icon: 'gaming',
-    games: [
-      'EA SPORTS FC 27',
-      'EA SPORTS FC Online',
-      'eFootball',
-      'League of Legends',
-      'Grand Theft Auto V',
-    ],
-  },
 ]
+
