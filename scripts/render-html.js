@@ -139,7 +139,11 @@ ${structuredData(page)}
 }
 
 export function renderSitemap() {
-  const urls = PAGES.map((page) => `  <url><loc>${SITE.url}${page.path}</loc></url>`).join('\n')
+  const lastmod = new Date().toISOString().replace('Z', '+00:00')
+  const urls = PAGES.map((page) => `  <url>
+    <loc>${SITE.url}${page.path}</loc>
+    <lastmod>${lastmod}</lastmod>
+  </url>`).join('\n')
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls}
