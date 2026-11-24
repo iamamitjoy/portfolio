@@ -114,7 +114,7 @@ export const NAV_ITEMS = PAGES.filter((page) => page.id !== 'home')
 
 // Icon is looked up by the lowercase label (see components/Icons.jsx).
 export const social = [
-  { label: 'Facebook', url: 'https://www.facebook.com/Its.Amit.Joy' },
+  { label: 'Facebook', url: 'https://www.facebook.com/Its.Amit.Joy/' },
   { label: 'X', url: 'https://x.com/IamAmitJoy' },
   { label: 'GitHub', url: 'https://github.com/iamamitjoy' },
   { label: 'LinkedIn', url: 'https://www.linkedin.com/in/iamamitjoy' },
