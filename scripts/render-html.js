@@ -99,7 +99,7 @@ export function renderPage(page) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="${SITE.themeColor}" />
-    <link rel="icon" type="image/x-icon" href="/src/assets/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <title>${title}</title>
     <meta name="description" content="${description}" />
     <meta name="author" content="${name}" />
