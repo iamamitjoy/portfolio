@@ -119,7 +119,7 @@ export const social = [
   { label: 'GitHub', url: 'https://github.com/iamamitjoy' },
   { label: 'LinkedIn', url: 'https://www.linkedin.com/in/iamamitjoy' },
   { label: 'Threads', url: 'https://www.threads.com/@iamamitjoy' },
-  { label: 'Instagram', url: 'https://www.instagram.com/iamamitjoy' },
+  { label: 'Instagram', url: 'https://www.instagram.com/iamamitjoy/' },
   { label: 'Reddit', url: 'https://www.reddit.com/user/itsamitjoy' },
   { label: 'Pinterest', url: 'https://www.pinterest.com/iamamitjoy' },
   { label: 'Snapchat', url: 'https://www.snapchat.com/add/iamamitjoy' },
