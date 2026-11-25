@@ -2,6 +2,7 @@ import { PAGES, SITE, education, skills, social, work } from '../src/data/site.j
 
 const FONTS_URL =
   'https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Syne:wght@600;700;800&display=swap'
+const GTM_ID = 'GTM-KVGMK4NR'
 const PERSON_ID = `${SITE.url}/#person`
 const WEBSITE_ID = `${SITE.url}/#website`
 const OG_IMAGE = `${SITE.url}/og-image.jpg`
@@ -96,6 +97,12 @@ export function renderPage(page) {
 <!-- Generated from src/data/site.js by vite.config.js. Edit that file, not this one. -->
 <html lang="en">
   <head>
+    <script async src="https://www.googletagmanager.com/gtm.js?id=${GTM_ID}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="${SITE.themeColor}" />
